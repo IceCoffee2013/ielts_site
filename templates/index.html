@@ -1,0 +1,24 @@
+{% extends 'demo.html' %}
+
+{% block content %}
+    <table class="table table-hover">
+        <caption><strong>Result</strong></caption>
+        <thead>
+        <tr>
+            <th>时间</th>
+            <th>考点</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for seat in seats %}
+        <tr>
+            <td>{{ seat.date }}</td>
+            <td>{{ seat.center }}</td>
+            <td>{{ seat.status }}</td>
+        </tr>
+        {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
