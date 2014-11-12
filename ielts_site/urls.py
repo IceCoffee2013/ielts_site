@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     url(r'^$', 'ielts.views.show', name='home'),
     # url(r'^blog/', include('blog.urls')),
     # url(r'^show/', include(views.show)),
+    url(r'^subscribe/', 'ielts.views.subscribe'),
     url(r'^admin/', include(admin.site.urls)),
 
 )

@@ -1,8 +1,14 @@
 {% extends 'demo.html' %}
 
 {% block content %}
+
+    <form class="form-search">
+        <input class="input-medium search-query" type="text">
+        <button type="submit" class="btn" contenteditable="true">查找</button>
+    </form>
+
     <table class="table table-hover">
-        <caption><strong>Result</strong></caption>
+{#        <caption><strong>Result</strong></caption>#}
         <thead>
         <tr>
             <th>时间</th>
@@ -12,11 +18,11 @@
         </thead>
         <tbody>
         {% for seat in seats %}
-        <tr>
-            <td>{{ seat.date }}</td>
-            <td>{{ seat.center }}</td>
-            <td>{{ seat.status }}</td>
-        </tr>
+            <tr>
+                <td>{{ seat.date }}</td>
+                <td>{{ seat.center }}</td>
+                <td>{{ seat.status }}</td>
+            </tr>
         {% endfor %}
         </tr>
         </tbody>
