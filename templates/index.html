@@ -2,29 +2,33 @@
 
 {% block content %}
 
-    <form class="form-search">
-        <input class="input-medium search-query" type="text">
+    <form class="form-search" action="search" method="get">
+        <input class="input-medium search-query" type="text" name="seat_search">
         <button type="submit" class="btn" contenteditable="true">查找</button>
     </form>
 
-    <table class="table table-hover">
-{#        <caption><strong>Result</strong></caption>#}
-        <thead>
-        <tr>
-            <th>时间</th>
-            <th>考点</th>
-            <th>状态</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for seat in seats %}
+    {% if seats %}
+        <table class="table table-hover">
+            {#        <caption><strong>Result</strong></caption>#}
+            <thead>
             <tr>
-                <td>{{ seat.date }}</td>
-                <td>{{ seat.center }}</td>
-                <td>{{ seat.status }}</td>
+                <th>时间</th>
+                <th>考点</th>
+                <th>状态</th>
             </tr>
-        {% endfor %}
-        </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for seat in seats %}
+                <tr>
+                    <td>{{ seat.date }}</td>
+                    <td>{{ seat.center }}</td>
+                    <td>{{ seat.status }}</td>
+                </tr>
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p>Can not find seat !!</p>
+    {% endif %}
 {% endblock %}

@@ -14,7 +14,7 @@ class Seat(models.Model):
     addTime = models.DateTimeField(auto_now_add=True, verbose_name=u'修改时间')
 
     def __unicode__(self):
-        return u'%s %d' % (self.date, self.center)
+        return u'%s %s' % (self.date, self.center)
 
     class Meta:
         ordering = ['date', 'province', 'city', 'center']
