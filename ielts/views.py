@@ -20,8 +20,8 @@ def subscribe(request):
 
 
 def search(request):
-    if 'seat_search' in request.GET:
-        key = request.GET['seat_search']
+    if 'place' in request.GET:
+        key = request.GET['place']
         # print 'key: ' + key
         seats = Seat.objects.filter(city__icontains=key)
         if not seats: # if city can not found, try to search province
