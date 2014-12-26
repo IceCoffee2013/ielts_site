@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     # url(r'^show/', include(views.show)),
     url(r'^subscribe/', 'ielts.views.subscribe'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/', 'ielts.views.search')
+    url(r'^search/', 'ielts.views.search'),
+    url(r'^12306/', 'train.views.show'),
+    url(r'^search12306/', 'train.views.search'),
 
 )
