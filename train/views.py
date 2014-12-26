@@ -20,6 +20,15 @@ def search(request):
         # if not seats: # if city can not found, try to search province
         #     seats = Seat.objects.filter(province__icontains=key)
 
+        try:
+            for i in seats:
+                private_phone = i.phone
+                i.phone = private_phone[:3] + '****' + private_phone[-4:]
+                private_cardId = i.cardId
+                i.cardId = private_cardId[:8] + '******' + private_cardId[-4:]
+        except Exception,e:
+            print e
+
         t = loader.get_template("index_12306.html")
         c = Context({'seats': seats})
         return HttpResponse(t.render(c))
