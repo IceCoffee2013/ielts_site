@@ -8,7 +8,7 @@ from train.models import Account
 
 def show(request):
     seats = []
-    t = loader.get_template("index_12306.html")
+    t = loader.get_template("query_12306.html")
     c = Context({'seats': seats})
     return HttpResponse(t.render(c))
 
