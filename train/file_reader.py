@@ -6,6 +6,7 @@ __author__ = 'Langley'
 def read():
     file = open("../data/12306.txt")
     list = []
+    id = 0
     for line in file:
         str = line.decode('gbk').split('----')
         mail = str[0]
@@ -15,10 +16,12 @@ def read():
         userName = str[4]
         key = str[1]
 
-        item = (mail,name,phone,cardId,userName,key)
+        # item = (mail,name,phone,cardId,userName,key)
+        item = (id,mail,key,name,cardId,phone,userName)
+        id = id + 1
         list.append(item)
 
-        if len(list) > 1000:
+        if len(list) > 5000:
             database.update(list)
             list = []
 
