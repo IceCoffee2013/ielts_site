@@ -1,0 +1,46 @@
+{% extends 'demo_photo.html' %}
+
+{% block content %}
+
+    <form class="form-search" action="/searchphoto/" method="get">
+        <input class="input-medium search-query" type="text" name="place">
+        <button type="submit" class="btn" contenteditable="true">查找</button>
+    </form>
+
+{#    <a href="#" class="image image-full"><img src="http://apolloblog.qiniudn.com/image/n33-robot-invader.jpg"#}
+{#                                                  alt=""/></a>#}
+
+
+    {% if uris %}
+{#          <p>Result: {{ uris }}</p>#}
+{#        <table class="table table-hover">#}
+{#                    <caption><strong>Result</strong></caption>#}
+{#            <thead>#}
+{#            <tr>#}
+{#                <th>邮箱</th>#}
+{#                <th>姓名</th>#}
+{#                <th>账号</th>#}
+{#                <th>号码</th>#}
+{#                <th>身份证</th>#}
+{#            </tr>#}
+{#            </thead>#}
+            <tbody>
+            {% for uri in uris %}
+{#                <tr>#}
+{#                    <td>{{ seat.mail }}</td>#}
+{#                    <td>{{ seat.name }}</td>#}
+{#                    <td>{{ seat.userName }}</td>#}
+{#                    <td>{{ seat.phone }}</td>#}
+{#                    <td>{{ seat.cardId }}</td>#}
+                <a href="#" class="image image-full"><img src="{{ uri }}"
+                                                  alt=""/></a>
+                <p></p>
+{#                </tr>#}
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p>Can not find your info !!</p>
+    {% endif %}
+{% endblock %}
