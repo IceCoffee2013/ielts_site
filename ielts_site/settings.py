@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import logging
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'ielts',
     'train',
+    'photo_grasp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,4 +95,10 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
+)
+
+logging.basicConfig(
+level = logging.DEBUG,
+format = '%(levelname)s %(module)s.%(funcName)s Line:%(lineno)d%(message)s',
+filename = './log/filelog.log',
 )

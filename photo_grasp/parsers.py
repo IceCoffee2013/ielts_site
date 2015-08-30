@@ -1,3 +1,4 @@
+import logging
 import re
 from photo_grasp.util import login
 
@@ -14,9 +15,11 @@ def parse_tuchong_photo(albumAddress):
     if pattern.findall(page):
         list = pattern.findall(page)
         print list
+        logging.debug(list)  # debug
         return generate_photo_address(userID, list)
     else:
         print 'find no photo address'
+        logging.debug('find no photo address')  #
         return None
 
 def get_tuchong_userID(page):
@@ -27,6 +30,7 @@ def get_tuchong_userID(page):
         return list[0]
     else:
         print 'find no photo address'
+        logging.debug('find no photo address')  #
         return None
 
 def generate_photo_address(userID, pictureIDs):
@@ -37,4 +41,5 @@ def generate_photo_address(userID, pictureIDs):
             if uri not in uri_list:
                 uri_list.append(uri)
                 print uri
+                logging.debug(uri)   #
     return uri_list
