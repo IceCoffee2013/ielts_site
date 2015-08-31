@@ -97,7 +97,6 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
 
-
 logging.basicConfig(
 level = logging.DEBUG,
 format = '%(levelname)s %(module)s.%(funcName)s Line:%(lineno)d%(message)s',
