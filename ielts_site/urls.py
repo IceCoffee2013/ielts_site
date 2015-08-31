@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^search/', 'ielts.views.search'),
     url(r'^12306/', 'train.views.show'),
     url(r'^search12306/', 'train.views.search'),
-    url(r'^photo/', 'photo_grasp.views.show'),
+    url(r'^photo/', 'photo_grasp.views.home'),
     url(r'^searchphoto/', 'photo_grasp.views.search'),
     # url(r'^phone/', '')
 

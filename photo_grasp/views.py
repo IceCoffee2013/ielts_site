@@ -6,6 +6,12 @@ from django.template import loader, Context
 from photo_grasp import parsers
 
 
+def home(request):
+    seats = []
+    t = loader.get_template("photo_base.html")
+    c = Context({'seats': seats})
+    return HttpResponse(t.render(c))
+
 def show(request):
     seats = []
     t = loader.get_template("query_photo.html")
@@ -13,8 +19,8 @@ def show(request):
     return HttpResponse(t.render(c))
 
 def search(request):
-    if 'place' in request.GET:
-        key = request.GET['place']
+    if 'key' in request.GET:
+        key = request.GET['key']
         print 'key: ' + key
         logging.debug('key: ' + key)  #
         # seats = Account.objects.filter(name__contains=key)
@@ -32,7 +38,7 @@ def search(request):
 
         uri_list = parsers.parse_tuchong_photo(key)
 
-        t = loader.get_template("index_photo.html")
+        t = loader.get_template("photo_base.html")
         c = Context({'uris': uri_list})
         return HttpResponse(t.render(c))
     else:

@@ -98,6 +98,11 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    # '/var/www/static/',
+)
+
 # logging.basicConfig(
 # level = logging.DEBUG,
 # format = '%(levelname)s %(module)s.%(funcName)s Line:%(lineno)d%(message)s',
