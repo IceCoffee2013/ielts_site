@@ -1,4 +1,6 @@
 # coding=utf8
+import logging
+
 __author__ = 'Langley'
 
 import os
@@ -32,8 +34,10 @@ def login(url):
         title = find_title(page)
         print title
         return page
-    except:
+    except Exception,e:
         page = ur''
+        print e
+        logging.debug('login error: ' + e)
         return page
 
 
