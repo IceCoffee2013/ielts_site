@@ -37,7 +37,8 @@ def login(url):
     except Exception,e:
         page = ur''
         print e
-        logging.debug('login error: ' + e)
+        logging.debug('login error ------>')
+        logging.debug(e)
         return page
 
 
