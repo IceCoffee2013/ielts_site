@@ -8,6 +8,10 @@ import re
 import threading
 import urllib2
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 COOKIE = 'anonymid=hp1y65b2-u4y60; _r01_=1; prf_cmd_frd=0; jebe_key=e1bda92e-34a6-43a8-9545-488b4188ae09%7C19a14b39b95662d62fd1d1c4df556f32%7C1389172287493%7C1; _de=EDF26EBE42FF267F303554EBBEB4676C696BF75400CE19CC; l4pager=0; at=1; depovince=GW; jebecookies=6114cc15-529c-48cb-b08c-39a43ea640f6|||||; JSESSIONID=abccnvO4akaTQdXtM9npu; p=1a8428f1ce076aa9a78e47248fa216234; ap=341396474; t=d4bbf4277354165b42460e31467413a24; societyguester=d4bbf4277354165b42460e31467413a24; id=341396474; xnsid=3209986e; XNESSESSIONID=fbfc8f557f64; loginfrom=null; feedType=341396474_hot'
 HEADERS = {'cookie': COOKIE}
 
