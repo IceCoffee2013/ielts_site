@@ -1,3 +1,4 @@
+import logging
 from django.http import HttpResponse
 
 # Create your views here.
@@ -15,6 +16,7 @@ def search(request):
     if 'place' in request.GET:
         key = request.GET['place']
         print 'key: ' + key
+        logging.debug('key: ' + key)  #
         # seats = Account.objects.filter(name__contains=key)
         # # if not seats: # if city can not found, try to search province
         # #     seats = Seat.objects.filter(province__icontains=key)
