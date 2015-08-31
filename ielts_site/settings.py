@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import logging
+from logging.handlers import TimedRotatingFileHandler
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -97,8 +98,19 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
 
-logging.basicConfig(
-level = logging.DEBUG,
-format = '%(levelname)s %(module)s.%(funcName)s Line:%(lineno)d%(message)s',
-filename = './log/filelog.log',
-)
+# logging.basicConfig(
+# level = logging.DEBUG,
+# format = '%(levelname)s %(module)s.%(funcName)s Line:%(lineno)d%(message)s',
+# filename = BASE_DIR + '/log/filelog.log',
+# )
+
+root = logging.getLogger()
+if len(root.handlers) == 0:  #避免重复
+    level = logging.DEBUG
+    filename = BASE_DIR + '/log/filelog.log'
+    format = '%(levelname)s %(module)s.%(funcName)s Line:%(lineno)d%(message)s'
+    hdlr = TimedRotatingFileHandler(filename,"midnight",1,5)
+    fmt = logging.Formatter(format)
+    hdlr.setFormatter(fmt)
+    root.addHandler(hdlr)
+root.setLevel(level)
