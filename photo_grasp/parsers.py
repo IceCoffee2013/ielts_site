@@ -7,10 +7,13 @@ __author__ = 'Langley'
 def parse_tuchong_photo(albumAddress):
     page = login(albumAddress)
     userID = get_tuchong_userID(page)
+    # print userID
     if userID == None:
+        logging.debug('userID == None') #
         return
     url = r'http://photos.tuchong.com/' + userID +'/f/(.+?).jpg'
     print url
+    logging.debug('url:' + url)  #
     pattern = re.compile(url)
     if pattern.findall(page):
         list = pattern.findall(page)
@@ -27,10 +30,11 @@ def get_tuchong_userID(page):
     if pattern.findall(page):
         list = pattern.findall(page)
         print list[0]
+        logging.debug('userID:'+list[0]) #
         return list[0]
     else:
-        print 'find no photo address'
-        logging.debug('find no photo address')  #
+        print 'find no userID'
+        logging.debug('find no userID')  #
         return None
 
 def generate_photo_address(userID, pictureIDs):
