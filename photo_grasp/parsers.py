@@ -23,7 +23,6 @@ def parse_tuchong_photo(albumAddress):
     else:
         print 'find no photo address'
         logging.debug('find no photo address')  #
-        logging.debug(page)
         return None
 
 def get_tuchong_userID(page):
@@ -36,6 +35,7 @@ def get_tuchong_userID(page):
     else:
         print 'find no userID'
         logging.debug('find no userID')  #
+        logging.debug(page)
         return None
 
 def generate_photo_address(userID, pictureIDs):
