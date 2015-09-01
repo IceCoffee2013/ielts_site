@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
 </head>
-<body>
+<body onload="load()">
 <!-- start preloader -->
 <!-- <div class="preloader">
     <div class="sk-spinner sk-spinner-three-bounce">
@@ -83,35 +83,46 @@
             </div>
         </div>
     </div>
-    </section>
+</section>
 
 <!---End-countdown-timer-->
 
-    {% if uris %}
-        <section class="features text-center">
+{% if uris %}
+
+    <section class="features text-center">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title wow bounceIn">
+                        <h2 id="results-title"> RESULTS</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-            <div class="main-posts">
+        <div class="main-posts">
             <div class="container">
                 <div class="row">
                     <div class="blog-masonry masonry-true">
                         {% for uri in uris %}
-                        <div class="post-masonry col-md-4 col-sm-6">
-                            <div class="post-thumb">
-                                <img src="{{ uri }}" alt="">
-{#                                <div class="title-over">#}
-{#                                    <h4><a href="#">Title one goes here</a></h4>#}
-{#                                </div>#}
-{#                                <div class="post-hover text-center">#}
-{#                                    <div class="inside">#}
-{#                                        <i class="fa fa-plus"></i>#}
-{#                                        <span class="date">25 Jan 2084</span>#}
-{#                                        <h4><a href="#">Title one goes here</a></h4>#}
-{#                                        <p>Cum sociis natoque penatibus et magnis dis parturient</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-                            </div>
-                        </div> <!-- /.post-masonry -->
+                            <div class="post-masonry col-md-4 col-sm-6">
+                                <div class="post-thumb">
+                                    <img src="{{ uri }}" alt="">
+                                    {#                                <div class="title-over">#}
+                                    {#                                    <h4><a href="#">Title one goes here</a></h4>#}
+                                    {#                                </div>#}
+                                    {#                                <div class="post-hover text-center">#}
+                                    {#                                    <div class="inside">#}
+                                    {#                                        <i class="fa fa-plus"></i>#}
+                                    {#                                        <span class="date">25 Jan 2084</span>#}
+                                    {#                                        <h4><a href="#">Title one goes here</a></h4>#}
+                                    {#                                        <p>Cum sociis natoque penatibus et magnis dis parturient</p>#}
+                                    {#                                    </div>#}
+                                    {#                                </div>#}
+                                </div>
+                            </div> <!-- /.post-masonry -->
                         {% endfor %}
                     </div>
                 </div>
@@ -119,8 +130,16 @@
         </div>
 
 
-        </section>
-    {% endif %}
+    </section>
+
+    <script type="javascript">
+        function load() {
+            location.hash = 'results-title';
+        }
+{#        alert('onload')#}
+    </script>
+
+{% endif %}
 
 
 <!-- start features -->
