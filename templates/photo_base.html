@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
 </head>
-<body onload="load()">
+
+<body onload="loadPage()">
+
 <!-- start preloader -->
 <!-- <div class="preloader">
     <div class="sk-spinner sk-spinner-three-bounce">
@@ -131,13 +133,6 @@
 
 
     </section>
-
-    <script type="javascript">
-        function load() {
-            location.hash = 'results-title';
-        }
-{#        alert('onload')#}
-    </script>
 
 {% endif %}
 
