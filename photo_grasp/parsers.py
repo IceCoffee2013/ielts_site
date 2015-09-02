@@ -63,7 +63,7 @@ def parse_lofter_photo(albumURL):
             img = div_soup.find_all('img')
             for n in img:
                 photo_url = n.get('src')
-                photo_url = url_filter(photo_url)
+                # photo_url = url_filter(photo_url)  # fix
                 photo_urls.append(photo_url)
                 print photo_url
     else:
@@ -71,6 +71,8 @@ def parse_lofter_photo(albumURL):
         logging.debug('parse_lofter_photo find none')
     return photo_urls
 
+# could not suit some case.
+# http://imgsize.ph.126.net/?imgurl=http://img0.ph.126.net/ioLP_lOFZIOE6zIL9SqjGw==/3363625971794402595.jpg_1680x10000x0x85.jpg
 def url_filter(url):
     if '?' in url:
         pattern = re.compile(r'(.+?)\?')
