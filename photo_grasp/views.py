@@ -36,7 +36,7 @@ def search(request):
         # except Exception,e:
         #     print e
 
-        uri_list = parsers.parse_tuchong_photo(key)
+        uri_list = parsers.parse_url(key)
 
         t = loader.get_template("photo_base.html")
         c = Context({'uris': uri_list})

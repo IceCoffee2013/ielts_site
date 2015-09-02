@@ -159,3 +159,13 @@ def download(que, savePath):
             f.close()
         except:
             print 'download error'
+
+def web_identify(url):
+    if is_tuchong():
+        return 'tuchong'
+
+def is_tuchong(url):
+    if 'tuchong' in url:
+        return True
+    else:
+        return False
