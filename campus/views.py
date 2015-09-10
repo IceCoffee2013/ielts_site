@@ -7,7 +7,7 @@ from django.template import loader, Context
 from campus.models import Student, StudentForm
 import sys
 reload(sys)
-sys.setdefaultencoding( "utf-8" )
+sys.setdefaultencoding("utf-8")
 
 def home(request):
     seats = []
@@ -28,8 +28,10 @@ def join_post(request):
             test = form.save(commit=False)
             test.save()
             form.save()
-            # return HttpResponseRedirect('/campus') # 跳转
-            return HttpResponse('success')
+            return HttpResponseRedirect('/success') # 跳转
+            # t = loader.get_template("campus_result.html")
+            # c = Context({'seats': ''})
+            # return HttpResponse(t.render(c))
         else:
             form = Student() #获得表单对象
             print 'is not valid'
@@ -55,4 +57,9 @@ def delete(request):
     students = Student.objects.all()
     t = loader.get_template("info.html")
     c = Context({'students': students})
+    return HttpResponse(t.render(c))
+
+def success(request):
+    t = loader.get_template("campus_result.html")
+    c = Context({'students': ''})
     return HttpResponse(t.render(c))
