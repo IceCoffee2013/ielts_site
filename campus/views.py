@@ -5,7 +5,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 from django.template import loader, Context
 from campus.models import Student, StudentForm
-
+import sys
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 
 def home(request):
     seats = []

@@ -4,7 +4,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.template import loader, Context
 from ielts.models import Seat
-
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 def show(request):
     seats = Seat.objects.all()
