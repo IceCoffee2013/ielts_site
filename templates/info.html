@@ -30,6 +30,7 @@
                 <th>号码</th>
                 <th>邮箱</th>
                 <th>内容</th>
+                <th>删除</th>
             </tr>
             </thead>
             <tbody>
@@ -40,6 +41,13 @@
                     <td>{{ student.phone }}</td>
                     <td>{{ student.email }}</td>
                     <td>{{ student.message }}</td>
+                    <td>
+                        <form action="/delete" method="get">
+                            <button type="submit" class="btn" name="delete" value="{{ student.email }}">
+                                delete
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
             </tr>

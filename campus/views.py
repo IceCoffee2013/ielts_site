@@ -45,3 +45,14 @@ def info(request):
     t = loader.get_template("info.html")
     c = Context({'students': students})
     return HttpResponse(t.render(c))
+
+def delete(request):
+    if 'delete' in request.GET:
+        key = request.GET['delete']
+        print 'key: ' + key
+        seats = Student.objects.get(email=key).delete()
+
+    students = Student.objects.all()
+    t = loader.get_template("info.html")
+    c = Context({'students': students})
+    return HttpResponse(t.render(c))
